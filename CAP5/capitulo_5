@@ -1,0 +1,111 @@
+-- Conhecendo o banco 
+
+
+-- CONHECENDO O WHERE 
+
+SELECT * FROM station_data
+WHERE year = 2010; 
+
+-- WHERE usando diferente 
+
+SELECT * FROM station_data
+WHERE year != 2010; 
+
+-- OU 
+
+SELECT * FROM station_data
+WHERE year <> 2010; 
+
+-- CONHECENDO BETWEEN
+
+SELECT * FROM station_data
+WHERE year BETWEEN 2005 AND 2010;
+
+-- USANDO OR 
+
+SELECT * FROM station_data
+WHERE MONTH = 3
+OR MONTH = 6
+OR MONTH = 9 
+OR MONTH = 12 ;
+
+-- NESSES CASOS PODEMOS USAR O IN
+
+SELECT * FROM station_data
+WHERE MONTH IN (3,6,9,12);
+
+-- CASO QUISESSSEMOS TODOS DADOS EXCETO ESSES PODERIAMOS USAR O NOT IN
+
+SELECT * FROM station_data
+WHERE MONTH NOT IN (3,6,9,12);
+
+
+-- LEMBRAR QUE PODEMOS USAR EXPRESSOES MATEMATICAS LOGO O MODULO TAMBEM FUNCIONA AQUI
+
+SELECT * FROM station_data
+WHERE MONTH % 3 = 0 ;
+
+-- USANDO WHERE COM TEXTO .
+-- especifico (nesse caso abaixo usamos aspas pro se tratar de texto )
+
+SELECT * FROM station_data
+WHERE report_code = '513A63';
+
+-- USANDO LENGHT PARA achar na coluna report code os que tem tamanho maior q 6 digito.
+
+SELECT * FROM station_data
+WHERE length(report_code) != 6;
+
+-- USANDO LIKE (lembre-se do %).
+
+SELECT * FROM station_data
+WHERE report_code LIKE 'A%';
+
+
+-- USANDO O LIKE COM O '_', no exemplo vamos encontrar qualquern report code com B - primeira posição, C- terceira posiçao , _ - representa qualquer valor .
+
+SELECT * FROM station_data
+WHERE report_code LIKE 'B_C%';
+
+-- WHERE COM BOOLEANOS em outras linguagens sem ser o SQLITE podemos usar true e false, mas no sqlite usamos 1 pra verdadeiro e 0 pra false
+
+SELECT * FROM station_data
+WHERE tornado = 1 AND hail = 1; 
+
+-- OU como se trata de campos booleanos podemos fazer assim e teremos mesmo resultado . 
+
+SELECT * FROM station_data
+WHERE tornado  AND hail ; 
+
+-- usando NOT 
+
+SELECT * FROM station_data
+WHERE NOT tornado  AND hail ; 
+
+-- LIDANDO COM NULL .
+
+SELECT * FROM station_data
+WHERE snow_depth IS NULL;
+
+
+-- se fossemos procurar os numeros menores que 0.5 em precipitation e os nulls , precisarmios inclui-los ja que < 0.5 é diferente de NULL
+SELECT * FROM station_data
+WHERE precipitation <= 0.5;
+
+-- Agora incluindo . 
+
+SELECT * FROM station_data
+WHERE precipitation <= 0.5 OR precipitation IS NULL;
+
+-- USANDO A coalesce pra lidar com NULLS, caso queiramos que o null seja tratado como 0 fazemos o seguinte ( A coalesce também pode ser usada no SELECT ).
+SELECT * FROM station_data
+WHERE coalesce(precipitation,0) <= 0 ; 
+
+
+-- agrupando condições .
+-- sempre usar os parenteses pra chegar onde queremos 
+
+SELECT * FROM station_data
+WHERE (rain = 1 AND temperature <= 32) OR snow_depth > 0;
+
+
