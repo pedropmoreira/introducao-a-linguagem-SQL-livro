@@ -1,10 +1,3 @@
-# LIVRO : INTRODUÇÃO AO SQL 
-## OS BANCOS USADOS SERÃO OS DO LIVRO
-## CAPITULO 4 : 
-Pasta CAP4. 
-
-Foi um capitulo que focou em consultas básicas SQL, Calculos em consultas, e Alias.  
-```
 -- Conhecendo as tabelas 
 SELECT * FROM CUSTOMER;
 SELECT * FROM CUSTOMER_ORDER;
@@ -21,7 +14,3 @@ SELECT PRODUCT_ID, PRICE, ROUND(PRICE * 1.07,2) AS TAXED_PRICE FROM PRODUCT;
 -- CONCATENANDO
 
 SELECT name, city || state AS LOCATION from customer;
-```
-
-## CAPITULO 5:
- 
