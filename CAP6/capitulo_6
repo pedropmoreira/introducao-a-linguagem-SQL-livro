@@ -1,0 +1,75 @@
+-- agregação simples 
+
+SELECT COUNT(*) AS contagem FROM station_data; -- encontramos 28 000 dados 
+
+-- AGORA VAMOS USAR O WHERE 
+
+SELECT COUNT(*) AS contagem FROM station_data
+WHERE tornado = 1;
+
+-- AGORA VAMOS CONTAR O TOTAL DE TORNADOS EM CADA ANO. 
+
+SELECT year, COUNT(*) AS contagem FROM station_data
+WHERE tornado = 1 
+GROUP BY year;
+
+-- group by com 2 colunas 
+
+SELECT year,month, COUNT(*) AS contagem FROM station_data
+WHERE tornado = 1 
+GROUP BY 1,2;
+
+-- ORDENANDO 
+
+SELECT year,month, COUNT(*) AS contagem FROM station_data
+WHERE tornado = 1 
+GROUP BY 1,2
+ORDER BY year,month;
+
+-- usando desc e asc
+
+SELECT year,month, COUNT(*) AS contagem FROM station_data
+WHERE tornado = 1 
+GROUP BY 1,2
+ORDER BY year DESC ,month;
+
+-- outras funcoes de agregação (quando usamos uma coluna no lugar do * , temos o total de linhas nao nulas naquela coluna )
+
+SELECT COUNT(snow_depth) as recorded FROM station_data;
+
+-- usando AVG agora
+
+SELECT month, ROUND(AVG(temperature),2) as avg_tmp FROM station_data
+WHERE year >= 2000
+GROUP BY month;
+
+-- sum agora
+
+SELECT year, SUM(snow_depth) as total FROM station_data
+WHERE year >= 2000
+GROUP BY year; 
+
+-- max agora
+
+SELECT year, SUM(snow_depth) as total_snow, 
+SUM(precipitation) as total_precip,
+MAX(precipitation) FROM station_data
+WHERE year >= 2000
+GROUP BY year;
+
+-- PARA fazer o filtro em um agrupação precisamos usar HAVING no lugar do where (exemplo) :
+
+SELECT year, SUM(precipitation) as total_p 
+FROM station_data 
+GROUP BY year
+HAVING total_p > 30;
+
+-- DISTINCT 
+
+SELECT DISTINCT station_number FROM station_data;
+
+-- retorna o distinto da combinação 
+SELECT DISTINCT station_number, year FROM station_data
+order by year DESC;
+
+
