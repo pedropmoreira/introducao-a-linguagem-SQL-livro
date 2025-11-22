@@ -52,3 +52,19 @@ Script: CAP5/capitulo_5
 
 
 Script: CAP6/capitulo_6
+
+## CAPITULO 7:
+
+Neste capítulo aprendemos a trabalhar com a expressão **CASE** para criar colunas condicionais, categorizar dados e realizar somas condicionais dentro das consultas SQL.
+
+Os principais conceitos apresentados foram:
+
+* Uso básico do CASE para criar categorias.
+* Uso do CASE dentro de consultas agregadas.
+* Prática usando GROUP BY com posições ordinais (ex.: GROUP BY 1, 2).
+* Aplicação do **truque Zero/Null** para somar valores condicionais usando:
+  `SUM(CASE WHEN condição THEN valor ELSE 0 END)`
+* Separação de valores agregados com base em condições específicas (ex.: precipitação em dias com tornado e sem tornado).
+
+Script: CAP7/capitulo_7
+

@@ -1,0 +1,34 @@
+-- USANDO CASE
+
+SELECT report_code, year, month, day, wind_speed,
+CASE
+    WHEN wind_speed >= 40 THEN 'HIGH'
+    WHEN wind_speed >= 30 THEN 'MODERATE'
+    ELSE 'LOW'
+END AS wind_severity
+FROM station_data;
+
+-- group by com posições ordinais e case
+
+SELECT year,
+CASE
+    WHEN wind_speed >= 40 THEN 'HIGH'
+    WHEN wind_speed >= 30 THEN 'MODERATE'
+    ELSE 'LOW'
+END AS wind_severity,
+COUNT(*) as record 
+FROM station_data
+GROUP BY 1,2; 
+
+-- zero / null truqye
+
+SELECT year, month,
+
+    SUM(CASE WHEN tornado = 1
+             THEN precipitation ELSE 0 END) AS tornado_precipitation,
+
+    SUM(CASE WHEN tornado = 0
+             THEN precipitation ELSE 0 END) AS non_tornado_precipitation
+
+FROM station_data
+GROUP BY year, month;
