@@ -1,0 +1,34 @@
+-- CAPITULO 8 
+
+-- INNER JOIN 
+
+SELECT order_id, CUSTOMER.CUSTOMER_id, 
+order_date, ship_date, name, 
+street_address, city, state, 
+zip, product_id, order_qty
+FROM CUSTOMER INNER JOIN CUSTOMER_order
+ON CUSTOMER.CUSTOMER_id = CUSTOMER_order.CUSTOMER_id;
+
+-- LEFT JOIN 
+
+SELECT order_id, CUSTOMER.CUSTOMER_id, 
+order_date, ship_date, name, 
+street_address, city, state, 
+zip, product_id, order_qty
+
+FROM CUSTOMER LEFT JOIN CUSTOMER_order
+ON CUSTOMER.CUSTOMER_id = CUSTOMER_order.CUSTOMER_id;
+
+-- RIGHT JOIN  (nao tem suporte em sqlite)
+
+SELECT order_id, CUSTOMER.CUSTOMER_id, 
+order_date, ship_date, name, 
+street_address, city, state, 
+zip, product_id, order_qty
+
+FROM CUSTOMER RIGHT JOIN CUSTOMER_order
+ON CUSTOMER.CUSTOMER_id = CUSTOMER_order.CUSTOMER_id;
+
+-- pra fazer o full outer join deveria usar union 
+
+

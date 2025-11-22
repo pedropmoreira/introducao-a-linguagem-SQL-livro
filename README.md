@@ -70,3 +70,24 @@ Os principais conceitos apresentados foram:
 
 Script: CAP7/capitulo_7
 
+## CAPITULO 8:
+
+Neste capítulo estudamos os diferentes tipos de *joins* em SQL e como eles funcionam na prática. Também vimos quais tipos são suportados pelo SQLite.
+
+Os principais conceitos apresentados foram:
+
+* **INNER JOIN**
+  Retorna apenas os registros que possuem correspondência nas duas tabelas.
+
+* **LEFT JOIN (LEFT OUTER JOIN)**
+  Retorna todos os registros da tabela da esquerda (CUSTOMER), mesmo que não haja correspondência na tabela CUSTOMER_order.
+
+* **RIGHT JOIN**
+  Não é suportado pelo SQLite, mas existe em outros bancos.
+
+* **FULL OUTER JOIN**
+  Também não é suportado pelo SQLite.
+  Para simular, é possível usar `UNION` entre um LEFT JOIN e um RIGHT JOIN.
+
+Script: CAP8/capitulo_8
+
