@@ -1,5 +1,7 @@
 # LIVRO : INTRODUÇÃO AO SQL 
 Repositório destinado ao livro Introdução à Linguagem SQL: Abordagem prática para iniciantes 
+
+![CAPA LIVRO](/intasql/utils/capalivro.jpg)
 ## OS BANCOS USADOS SERÃO OS DO LIVRO
 📂 Estrutura do Repositório
 - CAP4/ – Consultas básicas, cálculos e alias
